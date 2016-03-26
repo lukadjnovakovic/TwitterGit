@@ -1,24 +1,23 @@
 package com.twitter.poruke;
 
 /**
- * Klasa TwitterPoruka opisuje poruku i njenog korisnika
+ * klasa TwitterPoruka,sadrzi podatke o korisniku i poruci
  * @author LukaNovakovic
  *
  */
 public class TwitterPoruka {
-	
+
 	/**
-	 * Ime korisnika
+	 * ime korisnika
 	 */
 	private String korisnik;
-	
 	/**
-	 * poruka koju je korisnik uneo
+	 * tekst poruke
 	 */
 	private String poruka;
-	
+
 	/**
-	 * Metoda koja vraca ime korisnika neke poruke
+	 * metoda za citanje imena Korisnika
 	 * @return korisnik
 	 */
 	public String getKorisnik() {
@@ -26,7 +25,7 @@ public class TwitterPoruka {
 	}
 	
 	/**
-	 * metoda koja postavlja ime nekog korisnika
+	 * metoda za postavljanje imena korisnika
 	 * @param korisnik
 	 */
 	public void setKorisnik(String korisnik) {
@@ -37,31 +36,28 @@ public class TwitterPoruka {
 	}
 	
 	/**
-	 * metoda koja vraca sadrzaj poruke
-	 * @return poruka
+	 * metoda za preuzimanje teksta poruka
+	 * @return tekstPoruke
 	 */
 	public String getPoruka() {
-		return "poruka";
+		return this.poruka;
 	}
 	
 	/**
-	 * metoda koja postavlja tekst neke poruke
+	 * metoda za zapisivanje teksta nove poruke
 	 * @param poruka
 	 */
 	public void setPoruka(String poruka) {
-		if (poruka==null || this.poruka.length()>140)
+		if (poruka==null || poruka.length()>140)
 			throw new RuntimeException(
 					"Poruka mora biti uneta i mora imati najvise 140 znakova");
 		this.poruka = poruka;
 	}
-	
 	/**
-	 * metoda koja vraca korisnika i njegovu poruku kao string
-	 * @return korisnik + poruka
+	 * metoda koja vraca ime korisnika i njegovu poruku
+	 * @return korisnik+poruka
 	 */
 	public String toString(){
 		return "KORISNIK:"+korisnik+" PORUKA:"+poruka;
 	}
-	
-	
 }
