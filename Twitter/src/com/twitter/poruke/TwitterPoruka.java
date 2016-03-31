@@ -26,7 +26,8 @@ public class TwitterPoruka {
 	
 	/**
 	 * metoda za postavljanje imena korisnika
-	 * @param korisnik
+	 * @param korisnik koji je uneo poruku
+	 * @throws java.lang.RuntimeException
 	 */
 	public void setKorisnik(String korisnik) {
 		if (korisnik==null || korisnik == "")
@@ -45,7 +46,8 @@ public class TwitterPoruka {
 	
 	/**
 	 * metoda za zapisivanje teksta nove poruke
-	 * @param poruka
+	 * @param tekst poruke koju je korisnik uneo
+	 * @throws java.lang.RuntimeException
 	 */
 	public void setPoruka(String poruka) {
 		if (poruka==null || poruka.length()>140)

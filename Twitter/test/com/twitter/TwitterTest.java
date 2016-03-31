@@ -70,6 +70,13 @@ public class TwitterTest {
 
 	}
 	
+	@Test (expected = java.lang.RuntimeException.class)
+	public void testUnesi3() {
+		
+		tw.unesi(null,null);
+
+	}
+	
 	@Test
 	public void testVratiPoruke() {
 		tw.unesi("pera", "poruka1");
@@ -116,6 +123,42 @@ public class TwitterTest {
 		tw.unesi("maja", "666");
 		
 		TwitterPoruka[] proba = tw.vratiPoruke(-2,"");
+		
+		assertEquals("poruka1", proba[0].getPoruka());
+		assertEquals("poruka2", proba[1].getPoruka());
+		assertEquals("pera", proba[0].getKorisnik());
+		assertEquals("zika", proba[1].getKorisnik());
+	
+	}
+	
+	@Test (expected = java.lang.RuntimeException.class)
+	public void testVratiPoruke4() {
+		tw.unesi("pera", "poruka1");
+		tw.unesi("zika", "poruka2");
+		tw.unesi("laza", "333");
+		tw.unesi("mika", "444");
+		tw.unesi("duka", "555");
+		tw.unesi("maja", "666");
+		
+		TwitterPoruka[] proba = tw.vratiPoruke(-2,null);
+		
+		assertEquals("poruka1", proba[0].getPoruka());
+		assertEquals("poruka2", proba[1].getPoruka());
+		assertEquals("pera", proba[0].getKorisnik());
+		assertEquals("zika", proba[1].getKorisnik());
+	
+	}
+	
+	@Test (expected = java.lang.RuntimeException.class)
+	public void testVratiPoruke5() {
+		tw.unesi("pera", "poruka1");
+		tw.unesi("zika", "poruka2");
+		tw.unesi("laza", null);
+		tw.unesi("mika", "444");
+		tw.unesi("duka", "555");
+		tw.unesi("maja", "666");
+		
+		TwitterPoruka[] proba = tw.vratiPoruke(-2,"poruka");
 		
 		assertEquals("poruka1", proba[0].getPoruka());
 		assertEquals("poruka2", proba[1].getPoruka());

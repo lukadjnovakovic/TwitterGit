@@ -59,11 +59,15 @@ public class TwitterPorukaTest {
 		
 		assertEquals( "Pera", tp.getKorisnik());
 	}
+	
 	@Test (expected = java.lang.RuntimeException.class)
 	public void testSetKorisnik2() {
 		tp.setKorisnik("");
-		
-		
+	}
+	
+	@Test (expected = java.lang.RuntimeException.class)
+	public void testSetKorisnik3() {
+		tp.setKorisnik(null);
 	}
 	
 	/**
@@ -99,4 +103,9 @@ public class TwitterPorukaTest {
 		tp.setPoruka("");
 	}
 	
+	@Test (expected = java.lang.RuntimeException.class)
+	public void testToString3() {
+		tp.setKorisnik(null);
+		tp.setPoruka(null);
+	}
 }

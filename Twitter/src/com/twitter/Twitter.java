@@ -23,7 +23,7 @@ public class Twitter {
 	
 	/**
 	 * unos nove poruke sa tekstom i korisnikom
-	 * @param korisnik
+	 * @param ime korisnika koji je uneo poruku
 	 * @param poruka
 	 */
 	public void unesi(String korisnik, String poruka) {
@@ -37,9 +37,10 @@ public class Twitter {
 	
 	/**
 	 * metoda za pretragu poruka sa odredjenim tagom
-	 * @param maxBroj
-	 * @param tag
+	 * @param maxBroj - maksimalni broj poruka koji ce se vratiti kao rezultat
+	 * @param tag koji sadrze sve poruke koje se vracaju kao rezultat
 	 * @return niz poruka sa odredjenim tagom
+	 * @throws java.lang.RuntimeException
 	 */
 	public TwitterPoruka[] vratiPoruke(int maxBroj, String tag) {
 		if (tag==null || tag == "")
